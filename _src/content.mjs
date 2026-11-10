@@ -1,12 +1,13 @@
 // Page content for the Lock My Profile website. Each page has an English and a Spanish version.
 
-export function pages({ icon, frame, storeButton, esc, PREFIX, SITE, UPDATED }) {
+export function pages({ icon, frame, storeButton, esc, PREFIX, SITE, UPDATED, STORE_URL }) {
   const img = (name) => `${PREFIX}/assets/img/${name}.webp`;
   const app = (lang, description) => ({
     '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Lock My Profile',
     applicationCategory: 'SecurityApplication', operatingSystem: 'Google Chrome (Windows, macOS, Linux, ChromeOS)',
     inLanguage: ['en', 'es'], description, url: SITE + (lang === 'en' ? '/' : '/es/'),
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' }
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    ...(STORE_URL ? { installUrl: STORE_URL, downloadUrl: STORE_URL } : {})
   });
   const faqLd = (items) => ({ '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) });

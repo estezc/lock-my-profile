@@ -12,7 +12,7 @@ const DOMAIN_READY = true;
 const SITE = DOMAIN_READY ? 'https://lockmyprofile.com' : 'https://estezc.github.io/lock-my-profile';
 const PREFIX = DOMAIN_READY ? '' : '/lock-my-profile';
 // Chrome Web Store listing. Empty until the extension is published: buttons then say "coming soon".
-const STORE_URL = '';
+const STORE_URL = 'https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof';
 const UPDATED = '2026-11-10';
 
 const ICONS = {
@@ -110,7 +110,7 @@ ${p.body(ui)}
 `;
 }
 
-const ctx = { icon, frame, storeButton, esc, UI, SITE, PREFIX, UPDATED };
+const ctx = { icon, frame, storeButton, esc, UI, SITE, PREFIX, UPDATED, STORE_URL };
 const built = [];
 for (const p of pages(ctx)) {
   const file = p.path.endsWith('/') ? path.join(ROOT, p.path, 'index.html') : path.join(ROOT, p.path);
