@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://estezc.github.io/lock-my-profile/sitemap.xml

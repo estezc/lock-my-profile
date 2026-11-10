@@ -3,11 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lock My Profile</title>
-<meta http-equiv="refresh" content="0; url=privacy/">
-<link rel="canonical" href="privacy/">
+<title>Lock My Profile — Password protect Chrome and the sites you choose</title>
+<meta name="description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.">
+<link rel="canonical" href="https://estezc.github.io/lock-my-profile/">
+<link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/">
+<link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/">
+<link rel="alternate" hreflang="x-default" href="https://estezc.github.io/lock-my-profile/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lock My Profile">
+<meta property="og:title" content="Lock My Profile — Password protect Chrome and the sites you choose">
+<meta property="og:description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.">
+<meta property="og:url" content="https://estezc.github.io/lock-my-profile/">
+<meta property="og:image" content="https://estezc.github.io/lock-my-profile/assets/og-en.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#6544f0">
+<link rel="icon" href="/lock-my-profile/assets/logo.svg" type="image/svg+xml">
+<link rel="icon" href="/lock-my-profile/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/lock-my-profile/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/lock-my-profile/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lock My Profile","applicationCategory":"SecurityApplication","operatingSystem":"Google Chrome (Windows, macOS, Linux, ChromeOS)","inLanguage":["en","es"],"description":"Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.","url":"https://estezc.github.io/lock-my-profile/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Lock My Profile free?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can install it and use every feature for free."}},{"@type":"Question","name":"Does it send my data anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. It has no servers and no account. Your settings, the hash of your password and the activity log stay in your browser’s local storage."}},{"@type":"Question","name":"Can someone just turn it off?","acceptedAnswer":{"@type":"Answer","text":"While the profile is locked, Lock My Profile blocks Chrome’s internal pages, including the extensions page, so it can’t be switched off from there. It is built to stop people who use your computer; someone with full control of the computer could still remove it, so combine it with your computer’s account password for maximum security."}},{"@type":"Question","name":"What if I forget my password?","acceptedAnswer":{"@type":"Answer","text":"Use the hint or the recovery question from the lock screen. If you set neither, remove and reinstall the extension: that deletes its data and lets you start again."}},{"@type":"Question","name":"Does it work in incognito windows?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you allow it: in chrome://extensions, open Lock My Profile’s details and turn on “Allow in Incognito”."}},{"@type":"Question","name":"Which computers does it work on?","acceptedAnswer":{"@type":"Answer","text":"Google Chrome on Windows, macOS, Linux and ChromeOS."}}]}</script>
 </head>
 <body>
-<p><a href="privacy/">Lock My Profile — Privacy Policy / Política de privacidad</a></p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/lock-my-profile/"><img src="/lock-my-profile/assets/logo.svg" alt="" width="32" height="32">Lock My Profile</a>
+  <nav aria-label="Main">
+    <a class="hide-sm" href="/lock-my-profile/#features">Features</a>
+    <a class="hide-sm" href="/lock-my-profile/#guides">Guides</a>
+    <a class="hide-sm" href="/lock-my-profile/#privacy">Privacy</a>
+    <a class="lang" href="/lock-my-profile/es/" hreflang="es" lang="es">Español</a>
+  </nav>
+</div></header>
+<main id="main">
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Free browser extension</span>
+    <h1>Lock your browser with <em>one password</em></h1>
+    <p class="lead">Lock My Profile puts a password on your Chrome profile and on the sites you choose, and can disguise a locked tab as a harmless page. No account. Nothing leaves your device.</p>
+    <div class="cta"><span class="btn btn-primary" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5h8.2M9 13.8 4.9 6.6M15 13.8l-4.1 7.1"/></svg>Coming soon to the Chrome Web Store</span><a class="btn btn-ghost" href="#how">See how it works</a></div>
+    <ul class="trust"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No account</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works offline</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>English & Spanish</li></ul>
+  </div>
+  <div class="frame dark"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="/lock-my-profile/assets/img/lock-en.webp" alt="Lock My Profile lock screen covering the browser" width="1280" height="800" fetchpriority="high" decoding="async"></div>
+</div></section>
+
+<section class="block alt" id="features"><div class="wrap">
+  <div class="head"><h2>Everything you need to keep your browser private</h2><p>For shared computers, the office, or anyone who sits down while you’re away.</p></div>
+  <div class="grid"><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Lock the whole profile</h3><p>Every open tab hides behind a lock screen until you type your password. Lock instantly with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd>.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h3>Protect only some sites</h3><p>Email, chats or your bank ask for the password even while the browser is unlocked.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Auto-lock</h3><p>After a few idle minutes, when Chrome starts, when your computer locks or when the window is minimized.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><path d="M4 4l16 16"/></svg></span><h3>Tab camouflage</h3><p>A locked tab can look like another site, or be swapped for a real, harmless page.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg></span><h3>Intruder log</h3><p>Every wrong password is recorded with date and time. Export it as CSV.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Brute-force protection</h3><p>After 5 wrong attempts (you can change it) a timed lockout starts, doubling each round up to 15 minutes.</p></div></div>
+</div></section>
+
+<section class="block"><div class="wrap split">
+  <div><span class="eyebrow">Tab camouflage</span><h2>Step away. They’ll only see Wikipedia.</h2><p>Leave a protected tab and it’s swapped for a harmless page: the address bar shows the other site’s real address. Your own tab waits untouched in a minimized window, and a small password bar on the page brings it back.</p><ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Choose the page: Wikipedia, YouTube, Google, news and more</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Or keep the tab and disguise only its title and icon</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> brings the real tab back</span></li></ul></div>
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="/lock-my-profile/assets/img/decoy-en.webp" alt="A camouflaged tab showing a recipe site with the Lock My Profile password bar" width="1200" height="760" loading="lazy" decoding="async"></div>
+</div></section>
+
+<section class="block"><div class="wrap split rev">
+  <div><span class="eyebrow">Protected sites</span><h2>Lock only what matters</h2><p>Add the sites you want to keep private. They ask for the password every time they open, even while the rest of the browser is free to use.</p><ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Subdomains included</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Stays open for the time you choose, from 5 minutes to 4 hours</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Locks again as soon as you switch tabs</span></li></ul></div>
+  <div class="duo"><div class="frame dark"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="/lock-my-profile/assets/img/site-locked-en.webp" alt="A protected site asking for the password" width="1200" height="760" loading="lazy" decoding="async"></div><div class="popup"><img src="/lock-my-profile/assets/img/popup-en.webp" alt="The Lock My Profile popup" width="720" height="1180" loading="lazy" decoding="async"></div></div>
+</div></section>
+
+<section class="block"><div class="wrap split">
+  <div><span class="eyebrow">Intruder log</span><h2>See who tried to get in</h2><p>Lock My Profile keeps a log of every lock, unlock and failed attempt, so you know if someone tried to open your browser while you were away.</p><ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Date and time of every attempt</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Export to CSV</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>A security score with tips to make your setup stronger</span></li></ul></div>
+  <div class="frame"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="/lock-my-profile/assets/img/opt-log-en.webp" alt="The security log with failed password attempts" width="1200" height="780" loading="lazy" decoding="async"></div>
+</div></section>
+
+<section class="block alt" id="privacy"><div class="wrap">
+  <div class="head"><h2>Private by design</h2><p>Your password and your activity stay on your device. Always.</p></div>
+  <div class="grid"><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z"/><path d="M4 4l16 16"/></svg></span><h3>No account, no servers</h3><p>There is nothing to sign up for and nothing is sent anywhere. No analytics, no ads, no tracking.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><h3>Your password is never stored</h3><p>Only a salted PBKDF2-SHA256 hash (210,000 iterations) is kept, in your browser’s local storage.</p></div><div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></span><h3>Honest about its limits</h3><p>It keeps your browser safe from people who use your computer. For full security, also use your computer’s own account password.</p></div></div>
+  <p style="text-align:center;margin:28px 0 0"><a href="/lock-my-profile/privacy/">Read the privacy policy</a></p>
+</div></section>
+
+<section class="block" id="how"><div class="wrap">
+  <div class="head"><h2>Ready in under a minute</h2></div>
+  <div class="steps"><div class="card"><h3>Add it to Chrome</h3><p>Install Lock My Profile from the Chrome Web Store. It’s free.</p></div><div class="card"><h3>Create your password</h3><p>Add a hint or a recovery question in case you forget it.</p></div><div class="card"><h3>Choose what to lock</h3><p>The whole profile, a few sites, or both, and when it should lock by itself.</p></div></div>
+</div></section>
+
+<section class="block alt"><div class="wrap">
+  <div class="head"><h2>Questions</h2></div>
+  <div class="faq"><details><summary>Is Lock My Profile free?</summary><p>Yes. You can install it and use every feature for free.</p></details><details><summary>Does it send my data anywhere?</summary><p>No. It has no servers and no account. Your settings, the hash of your password and the activity log stay in your browser’s local storage.</p></details><details><summary>Can someone just turn it off?</summary><p>While the profile is locked, Lock My Profile blocks Chrome’s internal pages, including the extensions page, so it can’t be switched off from there. It is built to stop people who use your computer; someone with full control of the computer could still remove it, so combine it with your computer’s account password for maximum security.</p></details><details><summary>What if I forget my password?</summary><p>Use the hint or the recovery question from the lock screen. If you set neither, remove and reinstall the extension: that deletes its data and lets you start again.</p></details><details><summary>Does it work in incognito windows?</summary><p>Yes, if you allow it: in chrome://extensions, open Lock My Profile’s details and turn on “Allow in Incognito”.</p></details><details><summary>Which computers does it work on?</summary><p>Google Chrome on Windows, macOS, Linux and ChromeOS.</p></details></div>
+</div></section>
+
+<section class="block" id="guides"><div class="wrap">
+  <div class="head"><h2>Guides</h2><p>Step-by-step answers to the most common questions.</p></div>
+  <div class="guides"><a class="guide" href="/lock-my-profile/guides/password-protect-chrome/"><small>Chrome</small><b>How to password protect Chrome</b><span>Chrome has no password of its own. Here are the two ways to add one, and which to pick.</span></a><a class="guide" href="/lock-my-profile/guides/lock-whatsapp-web/"><small>WhatsApp Web</small><b>How to lock WhatsApp Web with a password</b><span>Keep your chats private on a shared computer without logging out every time.</span></a><a class="guide" href="/lock-my-profile/guides/lock-chrome-profile/"><small>Profiles</small><b>How to lock a Chrome profile</b><span>Put a password on one profile so the people you share the computer with can’t open it.</span></a></div>
+</div></section>
+
+<section class="final"><div class="wrap"><div class="box">
+  <h2>Your browser, your business</h2><p>Lock your profile and the sites you choose in under a minute.</p><span class="btn btn-primary" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5h8.2M9 13.8 4.9 6.6M15 13.8l-4.1 7.1"/></svg>Coming soon to the Chrome Web Store</span>
+</div></div></section>
+</main>
+<footer><div class="wrap">
+  <nav aria-label="Footer">
+    <a href="/lock-my-profile/">Lock My Profile</a>
+    <a href="/lock-my-profile/#guides">Guides</a>
+    <a href="/lock-my-profile/privacy/">Privacy policy</a>
+    <a href="/lock-my-profile/es/" hreflang="es">Español</a>
+  </nav>
+  <span>© 2026 Lock My Profile</span>
+  <span class="tm">Google Chrome is a trademark of Google LLC. Lock My Profile is not affiliated with Google.</span>
+</div></footer>
 </body>
 </html>

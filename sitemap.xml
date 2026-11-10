@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/es/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/guides/password-protect-chrome/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/guides/password-protect-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/guias/poner-contrasena-a-chrome/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/guides/lock-whatsapp-web/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/guides/lock-whatsapp-web/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/guias/bloquear-whatsapp-web/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/guides/lock-chrome-profile/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/guides/lock-chrome-profile/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/guias/bloquear-perfil-de-chrome/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/es/guias/poner-contrasena-a-chrome/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/guias/poner-contrasena-a-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/guides/password-protect-chrome/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/es/guias/bloquear-whatsapp-web/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/guias/bloquear-whatsapp-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/guides/lock-whatsapp-web/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/es/guias/bloquear-perfil-de-chrome/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://estezc.github.io/lock-my-profile/es/guias/bloquear-perfil-de-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://estezc.github.io/lock-my-profile/guides/lock-chrome-profile/"/>
+  </url>
+  <url>
+    <loc>https://estezc.github.io/lock-my-profile/privacy/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+</urlset>
