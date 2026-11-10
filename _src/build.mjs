@@ -8,7 +8,7 @@ import { pages } from './content.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // Switch to true once lockmyprofile.com points at GitHub Pages (DNS set up at GoDaddy).
 // Until then the site lives at estezc.github.io/lock-my-profile and must not claim the domain.
-const DOMAIN_READY = false;
+const DOMAIN_READY = true;
 const SITE = DOMAIN_READY ? 'https://lockmyprofile.com' : 'https://estezc.github.io/lock-my-profile';
 const PREFIX = DOMAIN_READY ? '' : '/lock-my-profile';
 // Chrome Web Store listing. Empty until the extension is published: buttons then say "coming soon".
