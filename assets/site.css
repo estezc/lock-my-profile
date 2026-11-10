@@ -189,3 +189,15 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-right: auto; 
 footer a { color: var(--text-2); text-decoration: none; }
 footer a:hover { color: var(--text); }
 footer .tm { flex-basis: 100%; font-size: 13px; }
+
+/* language menu */
+.langmenu { position: relative; }
+.langmenu summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 13px; color: var(--text-2); }
+.langmenu summary::-webkit-details-marker { display: none; }
+.langmenu summary svg { width: 15px; height: 15px; }
+.langmenu[open] summary { border-color: var(--accent); color: var(--text); }
+.langmenu ul { position: absolute; right: 0; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none; min-width: 160px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); z-index: 10; }
+.langmenu li a { display: block; padding: 8px 12px; border-radius: 8px; color: var(--text-2); text-decoration: none; font-weight: 600; }
+.langmenu li a:hover { background: var(--surface-2); color: var(--text); }
+.langmenu li a[aria-current] { color: var(--accent); }
+footer nav.langs { margin-right: 0; flex-basis: 100%; gap: 6px 16px; }

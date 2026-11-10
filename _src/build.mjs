@@ -1,8 +1,8 @@
-// Builds the Lock My Profile website (English + Spanish) into the repo root.
+// Builds the Lock My Profile website, one version per language module in _src/lang.
 // Run: node _src/build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { pages } from './content.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -16,6 +16,8 @@ const STORE_URL = 'https://chromewebstore.google.com/detail/lock-my-profile-brow
 const UPDATED = '2026-11-10';
 // Google Form that asks why someone uninstalled. Empty: the goodbye page only offers help.
 const FEEDBACK_URL = '';
+// Order of the language menu. English is the default (x-default) version.
+const LANG_ORDER = ['en', 'es', 'fr', 'de', 'it', 'pt'];
 
 const ICONS = {
   lock: '<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
@@ -28,23 +30,11 @@ const ICONS = {
   cloud: '<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z"/><path d="M4 4l16 16"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>',
   check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
-  chrome: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5h8.2M9 13.8 4.9 6.6M15 13.8l-4.1 7.1"/>'
+  chrome: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5h8.2M9 13.8 4.9 6.6M15 13.8l-4.1 7.1"/>',
+  langs: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'
 };
 const icon = (name) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name]}</svg>`;
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-
-const UI = {
-  en: { lang: 'en', locale: 'en_US', home: '/', other: 'Español', features: 'Features', privacy: 'Privacy', guides: 'Guides', guidesHome: '/#guides',
-    add: 'Add to Chrome — it’s free', soon: 'Coming soon to the Chrome Web Store', how: 'See how it works',
-    policy: 'Privacy policy', tm: 'Google Chrome is a trademark of Google LLC. Lock My Profile is not affiliated with Google.',
-    updated: 'Updated', crumbsHome: 'Home', ctaTitle: 'Lock My Profile', ctaText: 'Free browser extension: lock your profile and the sites you choose with one password.',
-    notFound: 'Page not found', notFoundText: 'This page doesn’t exist. Try the home page or one of our guides.' },
-  es: { lang: 'es', locale: 'es_ES', home: '/es/', other: 'English', features: 'Funciones', privacy: 'Privacidad', guides: 'Guías', guidesHome: '/es/#guias',
-    add: 'Añadir a Chrome — es gratis', soon: 'Muy pronto en Chrome Web Store', how: 'Ver cómo funciona',
-    policy: 'Política de privacidad', tm: 'Google Chrome es una marca de Google LLC. Lock My Profile no está afiliado a Google.',
-    updated: 'Actualizado', crumbsHome: 'Inicio', ctaTitle: 'Lock My Profile', ctaText: 'Extensión gratuita: bloquea tu perfil y las webs que elijas con una sola contraseña.',
-    notFound: 'Página no encontrada', notFoundText: 'Esta página no existe. Prueba con la página de inicio o con una de nuestras guías.' }
-};
 
 const storeButton = (ui, campaign, cls = 'btn btn-primary') => STORE_URL
   ? `<a class="${cls}" href="${STORE_URL}?utm_source=website&amp;utm_medium=${campaign}">${icon('chrome')}${ui.add}</a>`
@@ -52,15 +42,36 @@ const storeButton = (ui, campaign, cls = 'btn btn-primary') => STORE_URL
 
 const frame = (src, alt, w, h, dark, eager) => `<div class="frame${dark ? ' dark' : ''}"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="${src}" alt="${esc(alt)}" width="${w}" height="${h}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></div>`;
 
-function layout(p) {
-  const ui = UI[p.lang];
+// Screenshots and social cards exist per language; English stands in until one is made.
+const asset = (name, code, ext) => (fs.existsSync(path.join(ROOT, `assets/${name}-${code}.${ext}`)) ? `${name}-${code}.${ext}` : `${name}-en.${ext}`);
+const img = (name, code) => `${PREFIX}/assets/img/${asset('img/' + name, code, 'webp').slice(4)}`;
+
+// ── Load the languages ──
+const LANGS = [];
+for (const code of LANG_ORDER) {
+  const file = path.join(ROOT, '_src/lang', code + '.mjs');
+  if (!fs.existsSync(file)) continue;
+  const mod = await import(pathToFileURL(file).href);
+  const helpers = {
+    k: (s) => s.split('+').map((x) => `<kbd>${x}</kbd>`).join('+'),
+    fig: (name, alt, w, h, dark, caption) => `<figure>${frame(img(name, code), alt, w, h, dark)}${caption ? `<figcaption>${caption}</figcaption>` : ''}</figure>`,
+    guide: (i) => `{{guide:${i}}}`
+  };
+  LANGS.push(mod.default(helpers));
+}
+const byCode = Object.fromEntries(LANGS.map((L) => [L.code, L]));
+const guideUrl = (L, i) => `${L.paths.guides}${L.guides[i].slug}/`;
+
+function layout(p, all) {
+  const L = p.L, ui = L.ui;
   const url = SITE + p.path;
-  const alts = p.alt ? [[p.lang, p.path], [p.lang === 'en' ? 'es' : 'en', p.alt]] : [[p.lang, p.path]];
-  const hreflang = alts.map(([l, h]) => `<link rel="alternate" hreflang="${l}" href="${SITE + h}">`).join('\n') +
-    (p.alt ? `\n<link rel="alternate" hreflang="x-default" href="${SITE + (p.lang === 'en' ? p.path : p.alt)}">` : '');
+  const alts = all.filter((q) => q.key === p.key);
+  const hreflang = alts.map((q) => `<link rel="alternate" hreflang="${q.L.code}" href="${SITE + q.path}">`).join('\n') +
+    (alts.length > 1 ? `\n<link rel="alternate" hreflang="x-default" href="${SITE + alts.find((q) => q.L.code === 'en').path}">` : '');
   const ld = p.ld ? p.ld.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n') : '';
-  return `<!doctype html>
-<html lang="${ui.lang}">
+  const langMenu = alts.length > 1 ? `<details class="langmenu"><summary aria-label="${esc(ui.language)}">${icon('langs')}<span>${L.code.toUpperCase()}</span></summary><ul>${alts.map((q) => `<li><a href="${PREFIX}${q.path}" hreflang="${q.L.code}" lang="${q.L.code}"${q.L.code === L.code ? ' aria-current="true"' : ''}>${q.L.name}</a></li>`).join('')}</ul></details>` : '';
+  const html = `<!doctype html>
+<html lang="${L.code}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,8 +84,9 @@ ${hreflang}
 <meta property="og:title" content="${esc(p.ogTitle || p.title)}">
 <meta property="og:description" content="${esc(p.description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}/assets/og-${p.lang}.png">
-<meta property="og:locale" content="${ui.locale}">
+<meta property="og:image" content="${SITE}/assets/${asset('og', L.code, 'png')}">
+<meta property="og:locale" content="${L.locale}">
+${alts.filter((q) => q.L.code !== L.code).map((q) => `<meta property="og:locale:alternate" content="${q.L.locale}">`).join('\n')}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#6544f0">
 <link rel="icon" href="${PREFIX}/assets/logo.svg" type="image/svg+xml">
@@ -84,14 +96,14 @@ ${hreflang}
 ${ld}
 </head>
 <body>
-<a class="skip" href="#main">${p.lang === 'en' ? 'Skip to content' : 'Saltar al contenido'}</a>
+<a class="skip" href="#main">${ui.skip}</a>
 <header class="top"><div class="wrap">
-  <a class="brand" href="${PREFIX}${ui.home}"><img src="${PREFIX}/assets/logo.svg" alt="" width="32" height="32">Lock My Profile</a>
-  <nav aria-label="${p.lang === 'en' ? 'Main' : 'Principal'}">
-    <a class="hide-sm" href="${PREFIX}${ui.home}#${p.lang === 'en' ? 'features' : 'funciones'}">${ui.features}</a>
-    <a class="hide-sm" href="${PREFIX}${ui.guidesHome}">${ui.guides}</a>
-    <a class="hide-sm" href="${PREFIX}${ui.home}#${p.lang === 'en' ? 'privacy' : 'privacidad'}">${ui.privacy}</a>
-    ${p.alt ? `<a class="lang" href="${PREFIX}${p.alt}" hreflang="${p.lang === 'en' ? 'es' : 'en'}" lang="${p.lang === 'en' ? 'es' : 'en'}">${ui.other}</a>` : ''}
+  <a class="brand" href="${PREFIX}${L.paths.home}"><img src="${PREFIX}/assets/logo.svg" alt="" width="32" height="32">Lock My Profile</a>
+  <nav aria-label="${esc(ui.nav)}">
+    <a class="hide-sm" href="${PREFIX}${L.paths.home}#${L.ids.features}">${ui.features}</a>
+    <a class="hide-sm" href="${PREFIX}${L.paths.home}#${L.ids.guides}">${ui.guides}</a>
+    <a class="hide-sm" href="${PREFIX}${L.paths.home}#${L.ids.privacy}">${ui.privacy}</a>
+    ${langMenu}
   </nav>
 </div></header>
 <main id="main">
@@ -99,39 +111,42 @@ ${p.body(ui)}
 </main>
 <footer><div class="wrap">
   <nav aria-label="Footer">
-    <a href="${PREFIX}${ui.home}">Lock My Profile</a>
-    <a href="${PREFIX}${ui.guidesHome}">${ui.guides}</a>
-    <a href="${PREFIX}/privacy/${p.lang === 'es' ? '#es' : ''}">${ui.policy}</a>
-    ${p.alt ? `<a href="${PREFIX}${p.alt}" hreflang="${p.lang === 'en' ? 'es' : 'en'}">${ui.other}</a>` : ''}
+    <a href="${PREFIX}${L.paths.home}">Lock My Profile</a>
+    <a href="${PREFIX}${L.paths.home}#${L.ids.guides}">${ui.guides}</a>
+    <a href="${PREFIX}/privacy/${L.code === 'es' ? '#es' : ''}">${ui.policy}</a>
   </nav>
+  <nav class="langs" aria-label="${esc(ui.language)}">${LANGS.map((M) => `<a href="${PREFIX}${M.paths.home}" hreflang="${M.code}" lang="${M.code}">${M.name}</a>`).join('')}</nav>
   <span>© 2026 Lock My Profile</span>
   <span class="tm">${ui.tm}</span>
 </div></footer>
 </body>
 </html>
 `;
+  return html.replace(/\{\{guide:(\d+)\}\}/g, (_, i) => PREFIX + guideUrl(L, +i));
 }
 
-const ctx = { icon, frame, storeButton, esc, UI, SITE, PREFIX, UPDATED, STORE_URL, FEEDBACK_URL };
-const built = [];
-for (const p of pages(ctx)) {
+const ctx = { icon, frame, img, storeButton, esc, SITE, PREFIX, UPDATED, STORE_URL, FEEDBACK_URL, guideUrl };
+const all = LANGS.flatMap((L) => pages(ctx, L, byCode));
+for (const p of all) {
   const file = p.path.endsWith('/') ? path.join(ROOT, p.path, 'index.html') : path.join(ROOT, p.path);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, layout(p));
-  if (!p.noindex) built.push(p);
-  console.log('wrote', p.path);
+  fs.writeFileSync(file, layout(p, all));
 }
+console.log(`wrote ${all.length} pages in ${LANGS.map((L) => L.code).join(', ')}`);
+
+const listed = all.filter((p) => !p.noindex);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${built.map((p) => `  <url>
+${listed.map((p) => {
+  const alts = listed.filter((q) => q.key === p.key);
+  return `  <url>
     <loc>${SITE + p.path}</loc>
     <lastmod>${UPDATED}</lastmod>
-${p.alt ? `    <xhtml:link rel="alternate" hreflang="${p.lang}" href="${SITE + p.path}"/>
-    <xhtml:link rel="alternate" hreflang="${p.lang === 'en' ? 'es' : 'en'}" href="${SITE + p.alt}"/>
-` : ''}  </url>`).join('\n')}
+${alts.length > 1 ? alts.map((q) => `    <xhtml:link rel="alternate" hreflang="${q.L.code}" href="${SITE + q.path}"/>\n`).join('') : ''}  </url>`;
+}).join('\n')}
   <url>
     <loc>${SITE}/privacy/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>${UPDATED}</lastmod>
   </url>
 </urlset>
 `;
