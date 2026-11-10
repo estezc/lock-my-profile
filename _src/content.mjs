@@ -1,6 +1,6 @@
 // Page content for the Lock My Profile website. Each page has an English and a Spanish version.
 
-export function pages({ icon, frame, storeButton, esc, PREFIX, SITE, UPDATED, STORE_URL }) {
+export function pages({ icon, frame, storeButton, esc, PREFIX, SITE, UPDATED, STORE_URL, FEEDBACK_URL }) {
   const img = (name) => `${PREFIX}/assets/img/${name}.webp`;
   const app = (lang, description) => ({
     '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Lock My Profile',
@@ -434,5 +434,43 @@ ${fig('opt-automation-es', 'Ajustes de automatización de Lock My Profile', 1200
 </div></section>`
   };
 
-  return [home('en'), home('es'), ...guides, notFound];
+  // ── Goodbye (opened by Chrome after an uninstall) ──
+  const BYE = {
+    en: { path: '/goodbye/', alt: '/es/adios/', title: 'Lock My Profile was removed', h1: 'Lock My Profile has been removed',
+      lead: 'Its data has been deleted from your browser: your password, settings and log are gone.',
+      ask: 'Could you tell us why? It takes 30 seconds and helps us improve it.', askBtn: 'Tell us why',
+      helpTitle: 'If something went wrong', help: [
+        ['Forgot your password?', 'Reinstalling starts from scratch. Next time, add a hint or a recovery question when you create it.'],
+        ['It locked too often?', 'In the settings you can turn off locking on startup or when switching tabs, and choose a longer auto-lock time.'],
+        ['Not sure how to use it?', `Our <a href="${PREFIX}/guides/password-protect-chrome/">step-by-step guides</a> explain the main uses.`]
+      ], again: 'Changed your mind?' },
+    es: { path: '/es/adios/', alt: '/goodbye/', title: 'Lock My Profile se ha desinstalado', h1: 'Lock My Profile se ha desinstalado',
+      lead: 'Sus datos se han borrado de tu navegador: la contraseña, los ajustes y el registro ya no están.',
+      ask: '¿Nos cuentas por qué? Son 30 segundos y nos ayuda a mejorarlo.', askBtn: 'Contar por qué',
+      helpTitle: 'Si algo no fue bien', help: [
+        ['¿Olvidaste la contraseña?', 'Al reinstalarlo empiezas de cero. La próxima vez, añade una pista o una pregunta de recuperación al crearla.'],
+        ['¿Se bloqueaba demasiado?', 'En los ajustes puedes desactivar el bloqueo al iniciar Chrome o al cambiar de pestaña, y elegir más tiempo de bloqueo automático.'],
+        ['¿No sabías cómo usarlo?', `Nuestras <a href="${PREFIX}/es/guias/poner-contrasena-a-chrome/">guías paso a paso</a> explican los usos principales.`]
+      ], again: '¿Has cambiado de idea?' }
+  };
+  const goodbye = (lang) => {
+    const c = BYE[lang];
+    return {
+      lang, path: c.path, alt: c.alt, noindex: true, title: c.title + ' — Lock My Profile', description: c.lead,
+      body: (ui) => `
+<section class="block"><div class="wrap" style="max-width:760px">
+  <div style="text-align:center">
+    <img src="${PREFIX}/assets/logo.svg" alt="" width="64" height="64" style="margin:0 auto 18px">
+    <h1 style="font-size:clamp(30px,4vw,42px);margin-bottom:12px">${c.h1}</h1>
+    <p class="lead" style="margin-inline:auto">${c.lead}</p>
+    ${FEEDBACK_URL ? `<p style="color:var(--text);font-weight:600;margin:0 0 16px">${c.ask}</p><div class="cta" style="justify-content:center"><a class="btn btn-primary" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${c.askBtn}</a></div>` : ''}
+  </div>
+  <h2 style="font-size:24px;margin:48px 0 16px">${c.helpTitle}</h2>
+  <div class="faq">${c.help.map(([q, a]) => `<details open><summary>${q}</summary><p>${a}</p></details>`).join('')}</div>
+  <div class="cta-box"><img src="${PREFIX}/assets/logo.svg" alt="" width="56" height="56"><div><b>${c.again}</b><span>${ui.ctaText}</span></div>${storeButton(ui, 'goodbye')}</div>
+</div></section>`
+    };
+  };
+
+  return [home('en'), home('es'), ...guides, goodbye('en'), goodbye('es'), notFound];
 }

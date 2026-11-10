@@ -14,6 +14,8 @@ const PREFIX = DOMAIN_READY ? '' : '/lock-my-profile';
 // Chrome Web Store listing. Empty until the extension is published: buttons then say "coming soon".
 const STORE_URL = 'https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof';
 const UPDATED = '2026-11-10';
+// Google Form that asks why someone uninstalled. Empty: the goodbye page only offers help.
+const FEEDBACK_URL = '';
 
 const ICONS = {
   lock: '<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
@@ -110,7 +112,7 @@ ${p.body(ui)}
 `;
 }
 
-const ctx = { icon, frame, storeButton, esc, UI, SITE, PREFIX, UPDATED, STORE_URL };
+const ctx = { icon, frame, storeButton, esc, UI, SITE, PREFIX, UPDATED, STORE_URL, FEEDBACK_URL };
 const built = [];
 for (const p of pages(ctx)) {
   const file = p.path.endsWith('/') ? path.join(ROOT, p.path, 'index.html') : path.join(ROOT, p.path);
