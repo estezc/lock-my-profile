@@ -14,7 +14,7 @@ export default ({ k, fig, guide }) => ({
 
   home: {
     title: 'Lock My Profile — Pon contraseña a Chrome y a las webs que elijas',
-    description: 'Extensión gratuita que bloquea tu perfil de Chrome y las webs que elijas con una contraseña. Bloqueo automático, pestañas camufladas y registro de intrusos. Sin cuentas.',
+    description: 'Extensión gratuita que bloquea tu perfil de Chrome y las webs que elijas con contraseña. Bloqueo automático, pestañas camufladas y registro de intrusos.',
     eyebrow: 'Extensión gratuita para el navegador',
     h1: 'Bloquea tu navegador con <em>una contraseña</em>',
     lead: 'Lock My Profile pone contraseña a tu perfil de Chrome y a las webs que elijas, y puede disfrazar una pestaña bloqueada de página inofensiva. Sin cuentas. Nada sale de tu equipo.',
@@ -67,7 +67,7 @@ export default ({ k, fig, guide }) => ({
       slug: 'poner-contrasena-a-chrome', tag: 'Chrome', title: 'Cómo poner contraseña a Chrome',
       blurb: 'Chrome no trae contraseña propia. Estas son las dos formas de añadirla y cuál elegir.',
       seoTitle: 'Cómo poner contraseña a Chrome (guía 2026) — Lock My Profile',
-      description: 'Chrome no trae contraseña. Aprende las dos formas de poner contraseña a Chrome, una cuenta propia en el ordenador o una extensión de bloqueo, y cómo configurarlas.',
+      description: 'Chrome no trae contraseña. Las dos formas de ponérsela, una cuenta propia en el ordenador o una extensión de bloqueo, y cómo configurar cada una.',
       tldr: '<strong>Respuesta corta:</strong> Chrome no pide contraseña al abrirse. La forma más rápida de añadirla es una extensión de bloqueo como Lock My Profile; la más segura, que cada persona tenga su propia cuenta en el ordenador. Mucha gente usa las dos.',
       body: `
 <h2>¿Chrome tiene opción de contraseña?</h2>
@@ -107,7 +107,7 @@ ${fig('lock', 'La pantalla de bloqueo de Lock My Profile', 1280, 800, true, 'La 
       slug: 'bloquear-whatsapp-web', tag: 'WhatsApp Web', title: 'Cómo bloquear WhatsApp Web con contraseña',
       blurb: 'Mantén tus chats privados en un ordenador compartido sin cerrar sesión cada vez.',
       seoTitle: 'Cómo bloquear WhatsApp Web con contraseña — Lock My Profile',
-      description: 'Pon contraseña a WhatsApp Web para que nadie lea tus chats en un ordenador compartido, sin cerrar sesión. Guía paso a paso, con opción de ocultar también la pestaña.',
+      description: 'Pon contraseña a WhatsApp Web para que nadie lea tus chats en un ordenador compartido, sin cerrar sesión. Guía paso a paso y cómo ocultar la pestaña.',
       tldr: '<strong>Respuesta corta:</strong> añade <code>web.whatsapp.com</code> como sitio protegido en Lock My Profile. WhatsApp Web pedirá tu contraseña cada vez que se abra y se volverá a bloquear al cambiar de pestaña, sin cerrar la sesión.',
       body: `
 <h2>¿Por qué bloquear WhatsApp Web?</h2>
@@ -137,8 +137,8 @@ ${fig('decoy', 'Una pestaña camuflada con la barra de contraseña', 1200, 760, 
     {
       slug: 'bloquear-perfil-de-chrome', tag: 'Perfiles', title: 'Cómo bloquear un perfil de Chrome con contraseña',
       blurb: 'Pon contraseña a un perfil para que quien comparte tu ordenador no pueda abrirlo.',
-      seoTitle: 'Cómo bloquear un perfil de Chrome con contraseña — Lock My Profile',
-      description: 'Los perfiles de Chrome no tienen contraseña. Aprende a bloquear un perfil de Chrome para que nadie lo abra, qué protege cada perfil y qué límites conviene conocer.',
+      seoTitle: 'Bloquear un perfil de Chrome con contraseña — Lock My Profile',
+      description: 'Los perfiles de Chrome no tienen contraseña. Cómo bloquear un perfil de Chrome para que nadie lo abra, qué protege y qué límites conviene conocer.',
       tldr: '<strong>Respuesta corta:</strong> los perfiles de Chrome no tienen contraseña, pero puedes añadirla instalando Lock My Profile <strong>dentro del perfil que quieres proteger</strong> y activando el bloqueo al iniciar Chrome.',
       body: `
 <h2>Qué es un perfil de Chrome (y por qué no tiene contraseña)</h2>

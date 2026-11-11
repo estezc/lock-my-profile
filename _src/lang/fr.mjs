@@ -14,7 +14,7 @@ export default ({ k, fig, guide }) => ({
 
   home: {
     title: 'Lock My Profile — Un mot de passe pour Chrome et vos sites',
-    description: 'Extension gratuite qui verrouille votre profil Chrome et les sites de votre choix par mot de passe. Verrouillage auto, onglets camouflés, journal des intrus, sans compte.',
+    description: 'Extension gratuite qui verrouille votre profil Chrome et vos sites par mot de passe. Verrouillage auto, onglets camouflés, journal des intrus, sans compte.',
     eyebrow: 'Extension gratuite pour le navigateur',
     h1: 'Verrouillez votre navigateur avec <em>un seul mot de passe</em>',
     lead: 'Lock My Profile met un mot de passe sur votre profil Chrome et sur les sites de votre choix, et peut déguiser un onglet verrouillé en page anodine. Sans compte. Rien ne quitte votre appareil.',

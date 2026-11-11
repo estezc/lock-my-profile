@@ -8,8 +8,21 @@ export function pages({ icon, frame, img, storeButton, esc, PREFIX, SITE, UPDATE
     applicationCategory: 'SecurityApplication', operatingSystem: 'Google Chrome (Windows, macOS, Linux, ChromeOS)',
     inLanguage: ['en', 'es', 'fr', 'de', 'it', 'pt'], description, url: SITE + L.paths.home,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    image: `${SITE}/assets/icon-512.png`,
+    screenshot: [`${SITE}${img('lock', code)}`, `${SITE}${img('decoy', code)}`, `${SITE}${img('opt-log', code)}`],
+    publisher: { '@id': `${SITE}/#org` },
     ...(STORE_URL ? { installUrl: STORE_URL, downloadUrl: STORE_URL } : {})
   });
+  const org = { '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE}/#org`, name: 'Lock My Profile', url: SITE + '/',
+    logo: `${SITE}/assets/icon-512.png`, ...(STORE_URL ? { sameAs: [STORE_URL] } : {}) };
+  const site = { '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#site`, name: 'Lock My Profile', url: SITE + L.paths.home,
+    inLanguage: code, publisher: { '@id': `${SITE}/#org` } };
+  const crumbsLd = (path, title) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: L.ui.crumbsHome, item: SITE + L.paths.home },
+    { '@type': 'ListItem', position: 2, name: L.ui.guides, item: `${SITE}${L.paths.home}#${L.ids.guides}` },
+    { '@type': 'ListItem', position: 3, name: title, item: SITE + path }] });
+  // Animated demo of the camouflage; people who prefer less motion get a still frame
+  const demo = (alt) => `<picture class="demo"><source media="(prefers-reduced-motion: reduce)" srcset="${img('demo-still', code)}"><img src="${img('demo', code)}" alt="${esc(alt)}" width="960" height="600" loading="lazy" decoding="async"></picture>`;
   const faqLd = (items) => ({ '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })) });
   const articleLd = (path, title, description) => ({ '@context': 'https://schema.org', '@type': 'Article', headline: title, description,
@@ -23,8 +36,8 @@ export function pages({ icon, frame, img, storeButton, esc, PREFIX, SITE, UPDATE
   const c = L.home, ids = L.ids;
 
   const home = {
-    key: 'home', L, path: L.paths.home, title: c.title, description: c.description,
-    ld: [app(c.description), faqLd(c.faq)],
+    key: 'home', L, path: L.paths.home, title: c.title, description: c.description, preload: img('lock', code),
+    ld: [org, site, app(c.description), faqLd(c.faq)],
     body: (ui) => `
 <section class="hero"><div class="wrap">
   <div>
@@ -44,7 +57,7 @@ export function pages({ icon, frame, img, storeButton, esc, PREFIX, SITE, UPDATE
 
 <section class="block"><div class="wrap split">
   <div><span class="eyebrow">${c.camoTag}</span><h2>${c.camoTitle}</h2><p>${c.camoText}</p>${checks(c.camoChecks)}</div>
-  ${frame(img('decoy', code), c.camoAlt, 1200, 760)}
+  ${demo(c.camoAlt)}
 </div></section>
 
 <section class="block"><div class="wrap split rev">
@@ -87,7 +100,7 @@ export function pages({ icon, frame, img, storeButton, esc, PREFIX, SITE, UPDATE
     const path = guideUrl(L, i);
     return {
       key: 'guide' + i, L, path, type: 'article', title: g.seoTitle, ogTitle: g.title, description: g.description,
-      ld: [articleLd(path, g.title, g.description)],
+      ld: [articleLd(path, g.title, g.description), crumbsLd(path, g.title)],
       body: (ui) => `
 <article class="article"><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="${PREFIX}${L.paths.home}">${ui.crumbsHome}</a> › <a href="${PREFIX}${L.paths.home}#${ids.guides}">${ui.guides}</a> › ${esc(g.title)}</nav>

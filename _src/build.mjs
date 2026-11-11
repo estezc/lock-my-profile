@@ -87,11 +87,22 @@ ${hreflang}
 <meta property="og:image" content="${SITE}/assets/${asset('og', L.code, 'png')}">
 <meta property="og:locale" content="${L.locale}">
 ${alts.filter((q) => q.L.code !== L.code).map((q) => `<meta property="og:locale:alternate" content="${q.L.locale}">`).join('\n')}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lock My Profile">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(p.ogTitle || p.title)}">
+<meta name="twitter:description" content="${esc(p.description)}">
+<meta name="twitter:image" content="${SITE}/assets/${asset('og', L.code, 'png')}">
 <meta name="theme-color" content="#6544f0">
+<meta name="application-name" content="Lock My Profile">
+<link rel="icon" href="${PREFIX}/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="${PREFIX}/assets/logo.svg" type="image/svg+xml">
-<link rel="icon" href="${PREFIX}/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="${PREFIX}/assets/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="${PREFIX}/assets/icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="${PREFIX}/assets/apple-touch-icon.png">
+<link rel="manifest" href="${PREFIX}/site.webmanifest">
+${p.preload ? `<link rel="preload" as="image" href="${p.preload}" fetchpriority="high">` : ''}
 <link rel="stylesheet" href="${PREFIX}/assets/site.css">
 ${ld}
 </head>

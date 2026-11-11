@@ -67,7 +67,7 @@ export default ({ k, fig, guide }) => ({
       slug: 'mettere-password-a-chrome', tag: 'Chrome', title: 'Come mettere la password a Chrome',
       blurb: 'Chrome non ha una password propria. Ecco i due modi per aggiungerla e quale scegliere.',
       seoTitle: 'Come mettere la password a Chrome (guida 2026) — Lock My Profile',
-      description: 'Chrome non chiede una password all’apertura. Scopri i due modi per mettere la password a Chrome, un account separato sul PC o un’estensione, e come configurarli.',
+      description: 'Chrome non chiede una password all’apertura. I due modi per mettere la password a Chrome, un account separato sul PC o un’estensione, e come configurarli.',
       tldr: '<strong>In breve:</strong> Chrome non chiede una password quando si apre. Il modo più rapido per aggiungerla è un’estensione di blocco come Lock My Profile; il più sicuro è dare a ogni persona il proprio account sul computer. Molti usano entrambi.',
       body: `
 <h2>Chrome ha un’opzione per la password?</h2>

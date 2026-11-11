@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lock My Profile — Password protect Chrome and the sites you choose</title>
-<meta name="description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.">
+<title>Lock My Profile — Password protect Chrome and your sites</title>
+<meta name="description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account needed.">
 <link rel="canonical" href="https://lockmyprofile.com/">
 <link rel="alternate" hreflang="en" href="https://lockmyprofile.com/">
 <link rel="alternate" hreflang="es" href="https://lockmyprofile.com/es/">
@@ -15,8 +15,8 @@
 <link rel="alternate" hreflang="x-default" href="https://lockmyprofile.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lock My Profile">
-<meta property="og:title" content="Lock My Profile — Password protect Chrome and the sites you choose">
-<meta property="og:description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.">
+<meta property="og:title" content="Lock My Profile — Password protect Chrome and your sites">
+<meta property="og:description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account needed.">
 <meta property="og:url" content="https://lockmyprofile.com/">
 <meta property="og:image" content="https://lockmyprofile.com/assets/og-en.png">
 <meta property="og:locale" content="en_US">
@@ -25,13 +25,26 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="it_IT">
 <meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lock My Profile">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lock My Profile — Password protect Chrome and your sites">
+<meta name="twitter:description" content="Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account needed.">
+<meta name="twitter:image" content="https://lockmyprofile.com/assets/og-en.png">
 <meta name="theme-color" content="#6544f0">
+<meta name="application-name" content="Lock My Profile">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="image" href="/assets/img/lock-en.webp" fetchpriority="high">
 <link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lock My Profile","applicationCategory":"SecurityApplication","operatingSystem":"Google Chrome (Windows, macOS, Linux, ChromeOS)","inLanguage":["en","es","fr","de","it","pt"],"description":"Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.","url":"https://lockmyprofile.com/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"installUrl":"https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof","downloadUrl":"https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://lockmyprofile.com/#org","name":"Lock My Profile","url":"https://lockmyprofile.com/","logo":"https://lockmyprofile.com/assets/icon-512.png","sameAs":["https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://lockmyprofile.com/#site","name":"Lock My Profile","url":"https://lockmyprofile.com/","inLanguage":"en","publisher":{"@id":"https://lockmyprofile.com/#org"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lock My Profile","applicationCategory":"SecurityApplication","operatingSystem":"Google Chrome (Windows, macOS, Linux, ChromeOS)","inLanguage":["en","es","fr","de","it","pt"],"description":"Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account needed.","url":"https://lockmyprofile.com/","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"image":"https://lockmyprofile.com/assets/icon-512.png","screenshot":["https://lockmyprofile.com/assets/img/lock-en.webp","https://lockmyprofile.com/assets/img/decoy-en.webp","https://lockmyprofile.com/assets/img/opt-log-en.webp"],"publisher":{"@id":"https://lockmyprofile.com/#org"},"installUrl":"https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof","downloadUrl":"https://chromewebstore.google.com/detail/lock-my-profile-browser-l/nliopkacenmbbcjmjnmjfmiccojgbfof"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Lock My Profile free?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can install it and use every feature for free."}},{"@type":"Question","name":"Does it send my data anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. It has no servers and no account. Your settings, the hash of your password and the activity log stay in your browser’s local storage."}},{"@type":"Question","name":"Can someone just turn it off?","acceptedAnswer":{"@type":"Answer","text":"While the profile is locked, Lock My Profile blocks Chrome’s internal pages, including the extensions page, so it can’t be switched off from there. It is built to stop people who use your computer; someone with full control of the computer could still remove it, so combine it with your computer’s account password for maximum security."}},{"@type":"Question","name":"What if I forget my password?","acceptedAnswer":{"@type":"Answer","text":"Use the hint or the recovery question from the lock screen. If you set neither, remove and reinstall the extension: that deletes its data and lets you start again."}},{"@type":"Question","name":"Does it work in incognito windows?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you allow it: in chrome://extensions, open Lock My Profile’s details and turn on “Allow in Incognito”."}},{"@type":"Question","name":"Which languages and computers does it work on?","acceptedAnswer":{"@type":"Answer","text":"Google Chrome on Windows, macOS, Linux and ChromeOS, in English, Spanish, French, German, Italian and Portuguese."}}]}</script>
 </head>
 <body>
@@ -65,7 +78,7 @@
 
 <section class="block"><div class="wrap split">
   <div><span class="eyebrow">Tab camouflage</span><h2>Step away. They’ll only see Wikipedia.</h2><p>Leave a protected tab and it’s swapped for a harmless page: the address bar shows the other site’s real address. Your own tab waits untouched in a minimized window, and a small password bar on the page brings it back.</p><ul class="checks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Choose the page: Wikipedia, YouTube, Google, news and more</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Or keep the tab and disguise only its title and icon</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> brings the real tab back</span></li></ul></div>
-  <div class="frame"><div class="bar"><i></i><i></i><i></i><span></span></div><img src="/assets/img/decoy-en.webp" alt="A camouflaged tab showing a recipe site with the Lock My Profile password bar" width="1200" height="760" loading="lazy" decoding="async"></div>
+  <picture class="demo"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/demo-still-en.webp"><img src="/assets/img/demo-en.webp" alt="A camouflaged tab showing a recipe site with the Lock My Profile password bar" width="960" height="600" loading="lazy" decoding="async"></picture>
 </div></section>
 
 <section class="block"><div class="wrap split rev">

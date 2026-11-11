@@ -15,8 +15,8 @@ export default ({ k, fig, guide }) => ({
   ids: { features: 'features', privacy: 'privacy', how: 'how', guides: 'guides' },
 
   home: {
-    title: 'Lock My Profile — Password protect Chrome and the sites you choose',
-    description: 'Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account, nothing leaves your device.',
+    title: 'Lock My Profile — Password protect Chrome and your sites',
+    description: 'Free extension that locks your Chrome profile and chosen sites with one password. Auto-lock, tab camouflage and an intruder log. No account needed.',
     eyebrow: 'Free browser extension',
     h1: 'Lock your browser with <em>one password</em>',
     lead: 'Lock My Profile puts a password on your Chrome profile and on the sites you choose, and can disguise a locked tab as a harmless page. No account. Nothing leaves your device.',

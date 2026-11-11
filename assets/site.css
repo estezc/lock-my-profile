@@ -201,3 +201,7 @@ footer .tm { flex-basis: 100%; font-size: 13px; }
 .langmenu li a:hover { background: var(--surface-2); color: var(--text); }
 .langmenu li a[aria-current] { color: var(--accent); }
 footer nav.langs { margin-right: 0; flex-basis: 100%; gap: 6px 16px; }
+
+/* animated camouflage demo */
+.demo { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
+.demo img { width: 100%; }
