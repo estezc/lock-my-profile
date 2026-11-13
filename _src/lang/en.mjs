@@ -46,7 +46,7 @@ export default ({ k, fig, guide }) => ({
     privacyTitle: 'Private by design', privacyText: 'Your password and your activity stay on your device. Always.',
     privacy: [
       ['cloud', 'No account, no servers', 'There is nothing to sign up for and nothing is sent anywhere. No analytics, no ads, no tracking.'],
-      ['key', 'Your password is never stored', 'Only a salted PBKDF2-SHA256 hash (210,000 iterations) is kept, in your browser’s local storage.'],
+      ['key', 'Your password is never stored', 'Only a salted PBKDF2-SHA256 hash (600,000 iterations) is kept, in your browser’s local storage.'],
       ['info', 'Honest about its limits', 'It keeps your browser safe from people who use your computer. For full security, also use your computer’s own account password.']
     ],
     privacyLink: 'Read the privacy policy',

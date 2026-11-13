@@ -44,7 +44,7 @@ export default ({ k, fig, guide }) => ({
     privacyTitle: 'Privado de verdade', privacyText: 'Sua senha e sua atividade ficam no seu dispositivo. Sempre.',
     privacy: [
       ['cloud', 'Sem conta, sem servidores', 'Não há cadastro e nada é enviado a lugar nenhum. Sem análise de dados, sem anúncios, sem rastreamento.'],
-      ['key', 'Sua senha nunca é guardada', 'Só um hash PBKDF2-SHA256 com salt (210.000 iterações) fica salvo, no armazenamento local do navegador.'],
+      ['key', 'Sua senha nunca é guardada', 'Só um hash PBKDF2-SHA256 com salt (600.000 iterações) fica salvo, no armazenamento local do navegador.'],
       ['info', 'Honesto sobre os limites', 'Ele protege o navegador de quem usa o seu computador. Para segurança total, use também a senha da sua conta no computador.']
     ],
     privacyLink: 'Ler a política de privacidade',

@@ -44,7 +44,7 @@ export default ({ k, fig, guide }) => ({
     privacyTitle: 'Confidentiel dès la conception', privacyText: 'Votre mot de passe et votre activité restent sur votre appareil. Toujours.',
     privacy: [
       ['cloud', 'Ni compte, ni serveur', 'Aucune inscription, et rien n’est envoyé nulle part. Pas de statistiques, pas de pub, pas de pistage.'],
-      ['key', 'Votre mot de passe n’est jamais stocké', 'Seule une empreinte PBKDF2-SHA256 salée (210 000 itérations) est conservée, dans le stockage local de votre navigateur.'],
+      ['key', 'Votre mot de passe n’est jamais stocké', 'Seule une empreinte PBKDF2-SHA256 salée (600 000 itérations) est conservée, dans le stockage local de votre navigateur.'],
       ['info', 'Honnête sur ses limites', 'Il protège votre navigateur des personnes qui utilisent votre ordinateur. Pour une sécurité complète, utilisez aussi le mot de passe de votre compte sur l’ordinateur.']
     ],
     privacyLink: 'Lire la politique de confidentialité',

@@ -44,7 +44,7 @@ export default ({ k, fig, guide }) => ({
     privacyTitle: 'Privat von Grund auf', privacyText: 'Ihr Passwort und Ihre Aktivität bleiben auf Ihrem Gerät. Immer.',
     privacy: [
       ['cloud', 'Kein Konto, keine Server', 'Keine Registrierung, keine Datenübertragung. Keine Analyse, keine Werbung, kein Tracking.'],
-      ['key', 'Ihr Passwort wird nie gespeichert', 'Gespeichert wird nur ein gesalzener PBKDF2-SHA256-Hash (210.000 Iterationen) im lokalen Speicher Ihres Browsers.'],
+      ['key', 'Ihr Passwort wird nie gespeichert', 'Gespeichert wird nur ein gesalzener PBKDF2-SHA256-Hash (600.000 Iterationen) im lokalen Speicher Ihres Browsers.'],
       ['info', 'Ehrlich zu den Grenzen', 'Die Erweiterung schützt Ihren Browser vor Menschen, die Ihren Computer benutzen. Für vollen Schutz nutzen Sie zusätzlich das Passwort Ihres Benutzerkontos.']
     ],
     privacyLink: 'Datenschutzerklärung lesen',
